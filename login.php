@@ -7,8 +7,7 @@ $db = mysqli_connect("localhost","root","","authentication") or die($db);
 		$username = mysqli_real_escape_string($db,$_POST['username']);
 		
 		$password = mysqli_real_escape_string($db,$_POST['password']);
-		
-		
+
 			//$password = md5($password);
 			$sql="SELECT * FROM users WHERE username='$username' AND password='$password'";
 			
