@@ -8,7 +8,7 @@ $db = mysqli_connect("localhost","root","","authentication")or die($db);
 		$password = mysqli_real_escape_string($db,$_POST['password']);
 		$password2 = mysqli_real_escape_string($db,$_POST['password2']);
 		if($password==$password2){
-			$password = md5($password);
+			//$password = md5($password);
 			$sql = "INSERT INTO users (username,email,password) values ('$username','$email','$password')";
 			
 			mysqli_query($db,$sql);

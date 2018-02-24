@@ -2,14 +2,14 @@
 		session_start(); 
 
 $db = mysqli_connect("localhost","root","","authentication") or die($db);
-	if (isset($_POST['login'])){
+	if (isset($_POST['submit'])){
 
-		$username = mysqli_real_escape_string($db,$_POST['usernam']);
+		$username = mysqli_real_escape_string($db,$_POST['username']);
 		
-		$password = mysqli_real_escape_string($db,$_POST['passwor']);
+		$password = mysqli_real_escape_string($db,$_POST['password']);
 		
 		
-			$password = md5($password);
+			//$password = md5($password);
 			$sql="SELECT * FROM users WHERE username='$username' AND password='$password'";
 			
 			$result = mysqli_query($db,$sql);
@@ -26,8 +26,6 @@ $db = mysqli_connect("localhost","root","","authentication") or die($db);
 		}	
 	}
 ?>
-
-
 <html>
 <head>
 	<title>
@@ -37,22 +35,22 @@ $db = mysqli_connect("localhost","root","","authentication") or die($db);
 	</head>
 <body>
 	<div>
-	<h1>Sign up</h1>
+	<h1>log in</h1>
 		<div>
-		<form method="post" action="home.php">
+		<form method="post" action="login.php">
 			<table>
 			<tr><td> Username</td>
-				<td><input type="text" class="" name="usernam"></td>
+				<td><input type="text" class="" name="username"></td>
 				</tr>
 				
 			
 				
 			<tr><td> password</td>
-				<td><input type="password"  name="passwor"></td>
+				<td><input type="password"  name="password"></td>
 				</tr>
 			
 			<tr>
-				<td><input type="submit"  value="login" name="login"></td>
+				<td><input type="submit"  value="login" name="submit"></td>
 				</tr>
 			</table>
 			
